@@ -23,6 +23,10 @@ function addSquare() {
         var size = Math.floor(Math.random() * (55 - 45 + 1)) + 45;
         newSquare.style.width=size + "px";
         newSquare.style.height = size + "px";
+        var containerWidth = squarearea.clientWidth || 700;
+        var containerHeight = squarearea.clientHeight || 300;
+        var maxLeft = Math.max(0, containerWidth - size - 4);
+        var maxTop = Math.max(0, containerHeight - size - 4);
 
 
 
