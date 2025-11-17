@@ -64,6 +64,6 @@ function addSquare() {
 function changeColors() {
     var squares = document.querySelectorAll('.square');
     squares.forEach(function(sq){
-        sq.style.backgroundColor = getRandomColor;
+        sq.style.backgroundColor = getRandomColor();
     });
 }
