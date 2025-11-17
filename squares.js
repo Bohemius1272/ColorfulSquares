@@ -1,6 +1,8 @@
 window.onload=function(){
     var add= document.getElementById("add");
+    var colorsBtn = this.document.getElementById("colors");
     add.onclick = addSquare;
+    colorsBtn.onclick = changeColors;
     var squareCount = parseInt(Math.random() * 21) + 30;
     for (let i = 0; i < squareCount; i++) {
         addSquare();
@@ -27,8 +29,8 @@ function addSquare() {
         var containerHeight = squarearea.clientHeight || 300;
         var maxLeft = Math.max(0, containerWidth - size - 4);
         var maxTop = Math.max(0, containerHeight - size - 4);
-        newSquare.style.left = parseInt(Math.random()*651)+"px";
-        newSquare.style.top = parseInt(Math.random()*251)+"px";
+        newSquare.style.left = parseInt(Math.random() * (maxLeft + 1))+"px";
+        newSquare.style.top = parseInt(Math.random() * (maxTop + 1))+"px";
         newSquare.style.backgroundColor=getRandomColor();
         newSquare.style.zIndex = 0;
 
@@ -58,6 +60,7 @@ function addSquare() {
                 this.style.zIndex = highestZ;
             }
         };
+        
         squarearea.appendChild(newSquare);
 }
 
