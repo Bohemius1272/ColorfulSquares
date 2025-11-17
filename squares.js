@@ -27,11 +27,31 @@ function addSquare() {
         var containerHeight = squarearea.clientHeight || 300;
         var maxLeft = Math.max(0, containerWidth - size - 4);
         var maxTop = Math.max(0, containerHeight - size - 4);
-
-
-
         newSquare.style.left = parseInt(Math.random()*651)+"px";
         newSquare.style.top = parseInt(Math.random()*251)+"px";
         newSquare.style.backgroundColor=getRandomColor();
+        newSquare.style.zIndex = 0;
+
+
+
+        newSquare.onclick = function (e) {
+            var currentZ = parseInt(this.style.zIndex) || 0;
+            if (currentZ === highestZ) {
+                var self = this;
+                this.classList.add('removing');
+                var removed = false;
+                function doRemove() {
+                    if (removed) return;
+                    removed = true;
+                    if (self.parentNode) self.parentNode.removeChild(self);
+                }
+                this.addEventListener('transitioned', function te(e){
+                    if (e.propertyName === 'opacity') {
+                        doRemove();
+                        self.removeEventListener('transitioned', te);
+                    }
+                });
+            }
+        }
         squarearea.appendChild(newSquare);
 }
