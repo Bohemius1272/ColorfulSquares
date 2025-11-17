@@ -9,4 +9,10 @@
     width:50px;
     border:2px solid black;
     position: absolute;
+    transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.square.removing{
+    opacity: 0;
+    transform: scale(0.85);
 }
