@@ -51,7 +51,13 @@ function addSquare() {
                         self.removeEventListener('transitioned', te);
                     }
                 });
+                setTimeout(doRemove, 300);
             }
-        }
+            else {
+                highestZ++;
+                this.style.zIndex = highestZ;
+            }
+        };
         squarearea.appendChild(newSquare);
 }
+
