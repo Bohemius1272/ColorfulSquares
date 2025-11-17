@@ -61,3 +61,9 @@ function addSquare() {
         squarearea.appendChild(newSquare);
 }
 
+function changeColors() {
+    var squares = document.querySelectorAll('.square');
+    squares.forEach(function(sq){
+        sq.style.backgroundColor = getRandomColor;
+    });
+}
